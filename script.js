@@ -1,37 +1,24 @@
 let display = document.getElementById("display");
 
 function addVal(value) {
-
-    display.textContent += value;
-
+    display.value += value;
 }
 
 function clearDisplay() {
-
-    display.textContent = "";
-
+    display.value = "";
 }
 
 function deleteLast() {
-
-    display.textContent = display.textContent.slice(0, -1);
-
+    display.value = display.value.slice(0, -1);
 }
 
 function calc() {
-
     try {
-
-        display.textContent = eval(display.textContent);
-
+        display.value = eval(display.value);
     }
-
     catch (err) {
-
         alert("give correct input");
-
     }
-
 }
 
 document.addEventListener("keydown", (e) => {
@@ -41,6 +28,7 @@ document.addEventListener("keydown", (e) => {
     if ("0123456789+-/*.%".includes(key)) {
         addVal(key);
     }
+
     else if (key == "Enter") {
         calc();
     }
